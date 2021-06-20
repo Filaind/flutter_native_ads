@@ -21,7 +21,7 @@ class UnifiedAdLayout : NSObject, FlutterPlatformView {
     private let layoutName: String
     private let attributionText: String
 
-    private let unifiedNativeAdView: GADUnifiedNativeAdView!
+    private let unifiedNativeAdView: GADNativeAdView!
     
     private weak var headlineView: UILabel!
     private weak var bodyView: UILabel!
@@ -51,7 +51,7 @@ class UnifiedAdLayout : NSObject, FlutterPlatformView {
         channel = FlutterMethodChannel(name: "com.github.sakebook.ios/unified_ad_layout_\(viewId)", binaryMessenger: messeneger)
         
         guard let nibObjects = Bundle.main.loadNibNamed(layoutName, owner: nil, options: nil),
-              let adView = nibObjects.first as? GADUnifiedNativeAdView else {
+              let adView = nibObjects.first as? GADNativeAdView else {
             fatalError("Could not load nib file for adView")
         }
         unifiedNativeAdView = adView
